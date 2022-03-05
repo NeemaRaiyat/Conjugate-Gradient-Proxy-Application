@@ -1,7 +1,7 @@
 #Setup compiler and key flags
 CC = gcc
-CPPFLAGS = -O0 -Wall -Wextra -Werror			#   -msse4.1 -fopenmp
-LIB_PATHS = -lm
+CPPFLAGS = -O0 -Wall -Wextra -Werror -msse4.1 -fopenmp
+LIB_PATHS = -lm -lGL -lglut
 TARGET = acacgs
 
 #Define the build directory

@@ -83,22 +83,54 @@ int conjugateGradient(struct mesh *A,
 #endif
 
   /* Calculate each iteration until the max number of iterations is done, or the residual is bellow the tolerance */
-  for (k = 1; k < max_iter && *normr > tolerance; k++)
+
+  // LOOP PEELED
+  TICK();
+  waxpby(nrow, 1.0, r, 0.0, r, p);
+  TOCK(t2);
+  
+  *normr = sqrt(rtrans);
+#ifdef USING_VERBOSE  
+  if (k % print_freq == 0 || k + 1 == max_iter) {
+    printf("Iteration = %.4d \t Residual = %e\n", k, *normr);
+  }
+#endif
+
+  TICK();
+  sparsemv(A, p, Ap);
+  TOCK(t3); // 2*nnz ops
+  double alpha = 0.0;
+  TICK();
+  ddot(nrow, p, Ap, &alpha);
+  TOCK(t1); // 2*nrow ops
+  alpha = rtrans / alpha;
+  TICK();
+  waxpby(nrow, 1.0, x, alpha, p, x); // 2*nrow ops
+  waxpby(nrow, 1.0, r, -alpha, Ap, r);
+  TOCK(t2); // 2*nrow ops
+  *niters = k;
+
+  /* Write SILO file */
+#ifdef USING_SILO
+  int err = writeTimestep(siloName, &k, A, p, r, Ap, b, x);
+  if (err != 0) {
+    return err;
+  }
+#endif
+
+
+  for (k = 2; k < max_iter && *normr > tolerance; k++)
   {
-    if (k == 1) {
-      TICK();
-      waxpby(nrow, 1.0, r, 0.0, r, p);
-      TOCK(t2);
-    } else {
-      oldrtrans = rtrans;
-      TICK();
-      ddot(nrow, r, r, &rtrans);
-      TOCK(t1); // 2*nrow ops
-      double beta = rtrans / oldrtrans;
-      TICK();
-      waxpby(nrow, 1.0, r, beta, p, p);
-      TOCK(t2); // 2*nrow ops
-    }
+    oldrtrans = rtrans;
+    TICK();
+    ddot(nrow, r, r, &rtrans);
+    TOCK(t1); // 2*nrow ops
+    // Variable only used once, so removed declaration
+    // double beta = rtrans / oldrtrans;
+    TICK();
+    waxpby(nrow, 1.0, r, rtrans / oldrtrans, p, p);
+    TOCK(t2); // 2*nrow ops
+    
 
     *normr = sqrt(rtrans);
 #ifdef USING_VERBOSE  

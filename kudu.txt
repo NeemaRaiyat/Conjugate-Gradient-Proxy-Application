@@ -1,5 +1,6 @@
 ssh kudu.dcs.warwick.ac.uk
 cd '/dcs/20/u2001540/2nd_Year/cs257/cw'
+make clean
 module load gcc9
 make
 chmod 777 remoterun.sh
