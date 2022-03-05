@@ -1,0 +1,7 @@
+ssh kudu.dcs.warwick.ac.uk
+cd '/dcs/20/u2001540/2nd_Year/cs257/cw'
+module load gcc9
+make
+chmod 777 remoterun.sh
+./remoterun.sh acacgs 10 10 10
+./remoterun.sh acacgs 100 100 100
