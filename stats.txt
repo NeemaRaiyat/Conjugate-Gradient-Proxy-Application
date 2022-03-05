@@ -1,0 +1,231 @@
+# INIITIAL RUN
+===== Final Statistics =====
+Executable name:      ./acacgs
+Dimensions:           10 10 10
+Number of iterations: 149
+Final residual:       2.226719e-92
+
+=== Time ==
+Total:           1.039600e-02 seconds
+ddot Kernel:     7.530000e-04 seconds
+waxpby Kernel:   1.093000e-03 seconds
+sparsemv Kernel: 8.291000e-03 seconds
+
+=== FLOP ==
+Total:           9.536000e+06 floating point operations
+ddot Kernel:     5.960000e+05 floating point operations
+waxpby Kernel:   8.940000e+05 floating point operations
+sparsemv Kernel: 8.046000e+06 floating point operations
+
+=== MFLOP/s ==
+Total:           9.172759e+02 MFLOP/s
+ddot Kernel:     7.915007e+02 MFLOP/s
+waxpby Kernel:   8.179323e+02 MFLOP/s
+sparsemv Kernel: 9.704499e+02 MFLOP/s
+
+Difference between computed and exact = 1.110223e-15 
+
+---------------- NEW TIMER FUNCTION ----------------
+===== Final Statistics =====
+Executable name:      ./acacgs
+Dimensions:           10 10 10
+Number of iterations: 149
+Final residual:       2.226719e-92
+
+=== Time ==
+Total:           9.110212e-03 seconds
+ddot Kernel:     6.051064e-04 seconds
+waxpby Kernel:   9.951591e-04 seconds
+sparsemv Kernel: 7.488012e-03 seconds
+
+=== FLOP ==
+Total:           9.536000e+06 floating point operations
+ddot Kernel:     5.960000e+05 floating point operations
+waxpby Kernel:   8.940000e+05 floating point operations
+sparsemv Kernel: 8.046000e+06 floating point operations
+
+=== MFLOP/s ==
+Total:           1.046737e+03 MFLOP/s
+ddot Kernel:     9.849508e+02 MFLOP/s
+waxpby Kernel:   8.983488e+02 MFLOP/s
+sparsemv Kernel: 1.074517e+03 MFLOP/s
+
+Difference between computed and exact = 1.110223e-15 
+
+----------------------------------------------------------------
+Initial Residual = 2.582402e+02
+Iteration = 0001         Residual = 2.582402e+02
+Iteration = 0002         Residual = 1.327591e+02
+Iteration = 0003         Residual = 8.572574e+01
+Iteration = 0004         Residual = 5.642909e+01
+Iteration = 0005         Residual = 3.590544e+01
+Iteration = 0006         Residual = 1.162222e+01
+Iteration = 0007         Residual = 4.492470e+00
+Iteration = 0008         Residual = 1.270919e+00
+Iteration = 0009         Residual = 2.410999e-01
+Iteration = 0010         Residual = 4.089963e-02
+Iteration = 0011         Residual = 4.860468e-03
+Iteration = 0012         Residual = 1.214667e-03
+Iteration = 0013         Residual = 1.597836e-04
+Iteration = 0014         Residual = 2.814716e-05
+Iteration = 0015         Residual = 2.154015e-06
+Iteration = 0016         Residual = 1.703989e-07
+Iteration = 0017         Residual = 1.018817e-08
+Iteration = 0018         Residual = 3.801474e-10
+Iteration = 0019         Residual = 1.194998e-11
+Iteration = 0020         Residual = 5.326700e-13
+Iteration = 0021         Residual = 1.528116e-14
+Iteration = 0022         Residual = 6.980288e-15
+Iteration = 0023         Residual = 8.393769e-16
+Iteration = 0024         Residual = 1.167805e-16
+Iteration = 0025         Residual = 2.054605e-17
+Iteration = 0026         Residual = 3.198007e-18
+Iteration = 0027         Residual = 1.281820e-18
+Iteration = 0028         Residual = 1.997636e-19
+Iteration = 0029         Residual = 3.383619e-20
+Iteration = 0030         Residual = 1.776141e-20
+Iteration = 0031         Residual = 8.937508e-21
+Iteration = 0032         Residual = 6.616931e-22
+Iteration = 0033         Residual = 3.383097e-22
+Iteration = 0034         Residual = 2.537480e-23
+Iteration = 0035         Residual = 6.304066e-24
+Iteration = 0036         Residual = 1.976626e-24
+Iteration = 0037         Residual = 8.706825e-25
+Iteration = 0038         Residual = 2.720931e-25
+Iteration = 0039         Residual = 1.112395e-25
+Iteration = 0040         Residual = 1.414964e-26
+Iteration = 0041         Residual = 3.402237e-27
+Iteration = 0042         Residual = 8.880231e-28
+Iteration = 0043         Residual = 1.758221e-28
+Iteration = 0044         Residual = 3.401420e-29
+Iteration = 0045         Residual = 4.400625e-30
+Iteration = 0046         Residual = 6.646306e-31
+Iteration = 0047         Residual = 2.703220e-31
+Iteration = 0048         Residual = 3.215894e-32
+Iteration = 0049         Residual = 1.025317e-32
+Iteration = 0050         Residual = 2.732515e-33
+Iteration = 0051         Residual = 2.578398e-33
+Iteration = 0052         Residual = 1.504415e-33
+Iteration = 0053         Residual = 3.008761e-34
+Iteration = 0054         Residual = 4.354331e-35
+Iteration = 0055         Residual = 1.250890e-35
+Iteration = 0056         Residual = 1.637848e-36
+Iteration = 0057         Residual = 4.533883e-37
+Iteration = 0058         Residual = 1.191802e-37
+Iteration = 0059         Residual = 7.052083e-38
+Iteration = 0060         Residual = 3.180514e-38
+Iteration = 0061         Residual = 6.534587e-39
+Iteration = 0062         Residual = 1.149939e-39
+Iteration = 0063         Residual = 1.031504e-40
+Iteration = 0064         Residual = 2.632467e-41
+Iteration = 0065         Residual = 4.775433e-42
+Iteration = 0066         Residual = 2.347600e-42
+Iteration = 0067         Residual = 9.435296e-43
+Iteration = 0068         Residual = 2.151132e-43
+Iteration = 0069         Residual = 1.046167e-43
+Iteration = 0070         Residual = 4.977416e-44
+Iteration = 0071         Residual = 7.598782e-45
+Iteration = 0072         Residual = 1.287749e-45
+Iteration = 0073         Residual = 6.844579e-47
+Iteration = 0074         Residual = 1.048984e-47
+Iteration = 0075         Residual = 1.691616e-48
+Iteration = 0076         Residual = 2.358209e-49
+Iteration = 0077         Residual = 6.908479e-50
+Iteration = 0078         Residual = 5.010865e-50
+Iteration = 0079         Residual = 2.829554e-50
+Iteration = 0080         Residual = 2.127380e-50
+Iteration = 0081         Residual = 8.821299e-51
+Iteration = 0082         Residual = 2.488142e-51
+Iteration = 0083         Residual = 9.693030e-52
+Iteration = 0084         Residual = 2.186230e-52
+Iteration = 0085         Residual = 3.295235e-53
+Iteration = 0086         Residual = 3.052323e-54
+Iteration = 0087         Residual = 5.532436e-55
+Iteration = 0088         Residual = 1.265553e-55
+Iteration = 0089         Residual = 3.877156e-56
+Iteration = 0090         Residual = 6.319462e-57
+Iteration = 0091         Residual = 2.141594e-57
+Iteration = 0092         Residual = 1.557932e-57
+Iteration = 0093         Residual = 6.877467e-58
+Iteration = 0094         Residual = 3.294315e-58
+Iteration = 0095         Residual = 3.759071e-59
+Iteration = 0096         Residual = 3.406661e-60
+Iteration = 0097         Residual = 3.655559e-61
+Iteration = 0098         Residual = 2.361554e-62
+Iteration = 0099         Residual = 3.888486e-63
+Iteration = 0100         Residual = 3.514219e-64
+Iteration = 0101         Residual = 7.770824e-65
+Iteration = 0102         Residual = 3.060818e-65
+Iteration = 0103         Residual = 8.103964e-66
+Iteration = 0104         Residual = 4.864988e-66
+Iteration = 0105         Residual = 1.190836e-66
+Iteration = 0106         Residual = 6.219655e-67
+Iteration = 0107         Residual = 4.631866e-67
+Iteration = 0108         Residual = 2.401696e-67
+Iteration = 0109         Residual = 3.036029e-68
+Iteration = 0110         Residual = 2.879614e-69
+Iteration = 0111         Residual = 1.848668e-69
+Iteration = 0112         Residual = 3.740354e-70
+Iteration = 0113         Residual = 6.287922e-71
+Iteration = 0114         Residual = 2.010672e-71
+Iteration = 0115         Residual = 4.046201e-72
+Iteration = 0116         Residual = 6.050391e-73
+Iteration = 0117         Residual = 1.568100e-73
+Iteration = 0118         Residual = 3.274440e-74
+Iteration = 0119         Residual = 4.646940e-75
+Iteration = 0120         Residual = 1.185473e-75
+Iteration = 0121         Residual = 4.468735e-76
+Iteration = 0122         Residual = 2.202785e-76
+Iteration = 0123         Residual = 9.191160e-77
+Iteration = 0124         Residual = 4.942169e-77
+Iteration = 0125         Residual = 1.933434e-77
+Iteration = 0126         Residual = 7.560684e-78
+Iteration = 0127         Residual = 1.318129e-78
+Iteration = 0128         Residual = 1.660351e-79
+Iteration = 0129         Residual = 5.914415e-80
+Iteration = 0130         Residual = 1.660093e-80
+Iteration = 0131         Residual = 1.585232e-81
+Iteration = 0132         Residual = 3.793255e-82
+Iteration = 0133         Residual = 2.750838e-83
+Iteration = 0134         Residual = 9.992124e-84
+Iteration = 0135         Residual = 1.151460e-83
+Iteration = 0136         Residual = 2.614323e-84
+Iteration = 0137         Residual = 1.013644e-84
+Iteration = 0138         Residual = 1.426083e-85
+Iteration = 0139         Residual = 3.884185e-86
+Iteration = 0140         Residual = 7.288881e-87
+Iteration = 0141         Residual = 1.189388e-87
+Iteration = 0142         Residual = 5.245024e-88
+Iteration = 0143         Residual = 2.821022e-88
+Iteration = 0144         Residual = 4.956160e-89
+Iteration = 0145         Residual = 9.887584e-90
+Iteration = 0146         Residual = 1.738705e-90
+Iteration = 0147         Residual = 4.084202e-91
+Iteration = 0148         Residual = 9.941258e-92
+Iteration = 0149         Residual = 2.226719e-92
+
+===== Final Statistics =====
+Executable name:      ./acacgs
+Dimensions:           10 10 10
+Number of iterations: 149
+Final residual:       2.226719e-92
+
+=== Time ==
+Total:           4.051000e-03 seconds
+ddot Kernel:     2.530000e-04 seconds
+waxpby Kernel:   3.490000e-04 seconds
+sparsemv Kernel: 3.025000e-03 seconds
+
+=== FLOP ==
+Total:           9.536000e+06 floating point operations
+ddot Kernel:     5.960000e+05 floating point operations
+waxpby Kernel:   8.940000e+05 floating point operations
+sparsemv Kernel: 8.046000e+06 floating point operations
+
+=== MFLOP/s ==
+Total:           2.353987e+03 MFLOP/s
+ddot Kernel:     2.355731e+03 MFLOP/s
+waxpby Kernel:   2.561605e+03 MFLOP/s
+sparsemv Kernel: 2.659835e+03 MFLOP/s
+
+Difference between computed and exact = 1.110223e-15 
