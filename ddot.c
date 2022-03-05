@@ -22,24 +22,4 @@ int ddot (const int n, const double * const x, const double * const y, double * 
   }
   *result = local_result;
   return 0;
-
-  /************************************************/
-
-  // double * local_result = (double *) _mm_malloc(sizeof(double), 64);     // maybe 32?? Size of cache line
-  // local_result[0] = 0.0;
-  // int i = 0;
-  // int loopN = (n/2)*2;
-  // __m128d lrVec = _mm_set1_pd(local_result[0]);
-  // #pragma omp parallel for reduction(+: local_result[0])
-  // for (i = 0; i < loopN; i+=2) {
-  //   __m128d xVec = _mm_load_pd(x + i);
-  //   __m128d yVec = _mm_load_pd(y + i);
-  //   lrVec = _mm_add_pd(lrVec, _mm_mul_pd(xVec, yVec));
-  // }
-  // _mm_store_pd(local_result + 0, lrVec);
-  // for (; i < n; i++) {
-  //   local_result[0] += x[i]*y[i];
-  // }
-  // *result = local_result[0];  
-  // return 0;
 }

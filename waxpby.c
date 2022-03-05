@@ -25,7 +25,7 @@ int waxpby (const int n, const double alpha, const double * const x, const doubl
     for (i=0; i<loopN; i+=2) {
       __m128d xVec = _mm_load_pd(x + i);
       __m128d yVec = _mm_load_pd(y + i);
-      _mm_store_pd(w + i, _mm_add_pd(xVec, _mm_mul_pd(betaVec, yVec)));     // MAYBE REARRANGE
+      _mm_store_pd(w + i, _mm_add_pd(xVec, _mm_mul_pd(betaVec, yVec)));
     }
     for (; i<n; i++) {
       w[i] = x[i] + beta * y[i];
