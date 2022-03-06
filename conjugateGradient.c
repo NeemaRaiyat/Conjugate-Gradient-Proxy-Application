@@ -31,7 +31,7 @@
  * @return int 0 if no error.
  */
 int conjugateGradient(struct mesh *A,
-          const double *const b, double *const x,
+          double *const b, double *const x,
           const int max_iter, const double tolerance, int *niters, double *normr,
           double *times, char* siloName
 #ifndef USING_SILO
