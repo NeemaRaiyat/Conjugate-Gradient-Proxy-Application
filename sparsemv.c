@@ -3,6 +3,9 @@
 #include <assert.h>
 #include <math.h>
 
+#include <immintrin.h>
+#include <omp.h>
+
 #include "sparsemv.h"
 
 /**
@@ -16,15 +19,19 @@
 int sparsemv(struct mesh *A, const double * const x, double * const y)
 {
 
-  const int nrow = (const int) A->local_nrow;
+  // TODO: Optimize this file
+  // TODO: Pragma in waxpby?
 
+  const int nrow = (const int) A->local_nrow;
+  int j = 0;
+  #pragma omp parallel for private(j)
   for (int i=0; i< nrow; i++) {
       double sum = 0.0;
       const double * const cur_vals = (const double * const) A->ptr_to_vals_in_row[i];
       const int * const cur_inds = (const int * const) A->ptr_to_inds_in_row[i];
-      const int cur_nnz = (const int) A->nnz_in_row[i];
+      const int cur_nnz = (const int) A->nnz_in_row[i]
 
-      for (int j=0; j< cur_nnz; j++) {
+      for (j=0; j< cur_nnz; j++) {
         sum += cur_vals[j]*x[cur_inds[j]];
       }
       y[i] = sum;

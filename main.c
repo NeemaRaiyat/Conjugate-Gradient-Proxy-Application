@@ -5,6 +5,9 @@
 #include <string.h>
 #include <time.h>
 
+#include <immintrin.h>
+#include <omp.h>
+
 #include "generate_matrix.h"
 #include "mytimer.h"
 #include "sparsemv.h"
@@ -39,8 +42,12 @@ int main(int argc, char *argv[])
   time(&rawtime);
   struct tm * ptm = localtime(&rawtime);
   char fileName[25];
-  sprintf(fileName,"%04d_%02d_%02d_%02d_%02d_%02d",ptm->tm_year + 1900, ptm->tm_mon+1,
-    ptm->tm_mday, ptm->tm_hour, ptm->tm_min,ptm->tm_sec);
+  strftime(fileName, 25,"%x_%I_%M%p", ptm);
+  fileName[2] = '_';
+  fileName[5] = '_';
+
+  // sprintf(fileName,"%04d_%02d_%02d_%02d_%02d_%02d",ptm->tm_year + 1900, ptm->tm_mon+1, ptm->tm_mday, ptm->tm_hour, ptm->tm_min,ptm->tm_sec);
+  // sprintf(fileName,"%s", "tempFolder");
 
   if (argc < 4) {
     fprintf(stderr, "Usage:\n\t%s nx ny nz\n\t\twhere nx, ny and nz are the local sub-block dimensions\n\t%s nx ny nz 7pt-stencil\n\t\twhere nx, ny and nz are the local sub-block dimensions and 7pt-stencil is a boolean stating whether to use 7pt-stencil (default is 0 (false), 1 is true)\n", argv[0], argv[0]);
@@ -141,4 +148,7 @@ int main(int argc, char *argv[])
 
   /* Thats all folks...! */
   return 0;
+
+  _mm_free(x);
+  _mm_free(b);
 } 

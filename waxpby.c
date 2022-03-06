@@ -18,6 +18,7 @@
 int waxpby (const int n, const double * const x, const double beta, const double * const y, double * const w) {  
   
   // Alpha is always 1, so we don't need branching statements
+  // x, y and w are aligned, look in generate_matrix.c, so we dont need to use things like storeu and loadu
   int i = 0;
   int loopN = (n/4)*4;
   __m256d betaVec = _mm256_set1_pd(beta);
