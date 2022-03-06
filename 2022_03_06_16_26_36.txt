@@ -3,13 +3,13 @@
 Executable name:      acacgs
 Dimensions:           100 100 100
 Number of iterations: 149
-Final residual:       7.994896e-21
+Final residual:       7.994895e-21
 
 === Time ==
-Total:           2.235557e+00 seconds
-ddot Kernel:     1.098764e-01 seconds
-waxpby Kernel:   3.215535e-01 seconds
-sparsemv Kernel: 1.803811e+00 seconds
+Total:           2.220829e+00 seconds
+ddot Kernel:     1.092048e-01 seconds
+waxpby Kernel:   2.970328e-01 seconds
+sparsemv Kernel: 1.814171e+00 seconds
 
 === FLOP ==
 Total:           9.536000e+09 floating point operations
@@ -18,9 +18,9 @@ waxpby Kernel:   8.940000e+08 floating point operations
 sparsemv Kernel: 8.046000e+09 floating point operations
 
 === MFLOP/s ==
-Total:           4.265604e+03 MFLOP/s
-ddot Kernel:     5.424277e+03 MFLOP/s
-waxpby Kernel:   2.780253e+03 MFLOP/s
-sparsemv Kernel: 4.460556e+03 MFLOP/s
+Total:           4.293892e+03 MFLOP/s
+ddot Kernel:     5.457637e+03 MFLOP/s
+waxpby Kernel:   3.009768e+03 MFLOP/s
+sparsemv Kernel: 4.435083e+03 MFLOP/s
 
 Difference between computed and exact = 3.996803e-15 

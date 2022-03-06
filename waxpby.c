@@ -21,14 +21,14 @@ int waxpby (const int n, const double * const x, const double beta, const double
   int i = 0;
   int loopN = (n/4)*4;
   __m256d betaVec = _mm256_set1_pd(beta);
-  // #pragma omp parallel for         // WHY DOES THIS PRAGMA NOT WORK???   TRY ADDING CRITICAL/ATOMIC??
+  #pragma omp parallel for
   for (i=0; i<loopN; i+=4) {
     __m256d xVec = _mm256_load_pd(x + i);
     __m256d yVec = _mm256_load_pd(y + i);
     _mm256_store_pd(w + i, _mm256_add_pd(xVec, _mm256_mul_pd(betaVec, yVec)));
   }
-  for (; i<n; i++) {
-    w[i] = x[i] + beta * y[i];
+  for (int j = loopN; j<n; j++) {
+    w[j] = x[j] + beta * y[j];
   }
   return 0;
 }
