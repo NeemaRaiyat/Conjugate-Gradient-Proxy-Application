@@ -16,16 +16,7 @@
  * @param y Return vector
  * @return int 0 if no error
  */
-int sparsemv(struct mesh *A, const double * const x, double * const y)
-{
-
-  // TODO: Optimize this file
-  // ! Cpu is not hyperthreaded, hence 'export OMP_NUM_THREADS=6' is used since cpu has 6 logical cores
-  // ! There aren't any race conditions so far since waxpby changed with thread number yet is not even multithreaded so Dont worry about that
-
-  // Talk about why you didn't do loop interchange as it's already doing a column traversal.
-  // Row-traversal is much slower as it involves more cache-line read and writes
-  // Loop blocking could improve
+int sparsemv(struct mesh *A, const double * const x, double * const y) {
 
   const int nrow = (const int) A->local_nrow;
   int j = 0;

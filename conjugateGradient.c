@@ -48,6 +48,7 @@ int conjugateGradient(struct mesh *A,
   int nrow = A->local_nrow;
   int ncol = A->local_ncol;
 
+  // Alligned so vector operations are quicker
   double *r = (double *) _mm_malloc(sizeof(double) * nrow, 64);
   double *p = (double *) _mm_malloc(sizeof(double) * ncol, 64); // In parallel case, A is rectangular
   double *Ap = (double *) _mm_malloc(sizeof(double) * nrow, 64);
@@ -86,8 +87,10 @@ int conjugateGradient(struct mesh *A,
 #endif
 
   /* Calculate each iteration until the max number of iterations is done, or the residual is bellow the tolerance */
-
-  // LOOP PEELED
+  
+/////////////////////////////////////////////////////
+/////////////////// LOOP PEELED ///////////////////
+///////////////////////////////////////////////////
   TICK();
   waxpby(nrow, r, 0.0, r, p);
   TOCK(t2);
