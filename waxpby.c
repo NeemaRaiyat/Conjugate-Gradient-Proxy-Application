@@ -19,15 +19,15 @@ int waxpby (const int n, const double * const x, const double beta, const double
   // Alpha is always 1, so we don't need branching statements
   // x, y and w are aligned, look in generate_matrix.c, so we dont need to use things like storeu and loadu
   int i = 0;
-  int loopN = (n/4)*4;
+  int unroll = (n/4)*4;
   __m256d betaVec = _mm256_set1_pd(beta);
   #pragma omp parallel for
-  for (i=0; i<loopN; i+=4) {
+  for (i=0; i<unroll; i+=4) {
     __m256d xVec = _mm256_load_pd(x + i);
     __m256d yVec = _mm256_load_pd(y + i);
     _mm256_store_pd(w + i, _mm256_add_pd(xVec, _mm256_mul_pd(betaVec, yVec)));
   }
-  for (int j = loopN; j<n; j++) {
+  for (int j = unroll; j<n; j++) {
     w[j] = x[j] + beta * y[j];
   }
   return 0;
