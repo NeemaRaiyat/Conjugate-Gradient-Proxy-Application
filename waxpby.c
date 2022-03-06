@@ -18,6 +18,7 @@ int waxpby (const int n, const double * const x, const double beta, const double
   
   // Alpha is always 1, so we don't need branching statements
   // x, y and w are aligned, look in generate_matrix.c, so we dont need to use things like storeu and loadu
+  // unroll factor of 4 since 256 (vec reg size) / 64 (double) = 4 i.e. each vector register can hold up to 4 doubles.
   int i = 0;
   int unroll = (n/4)*4;
   __m256d betaVec = _mm256_set1_pd(beta);

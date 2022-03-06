@@ -3,7 +3,6 @@
 #include <assert.h>
 
 #include <immintrin.h>
-#include <omp.h>
 
 #include "generate_matrix.h"
 
