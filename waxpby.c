@@ -21,7 +21,7 @@ int waxpby (const int n, const double * const x, const double beta, const double
   int i = 0;
   int unroll = (n/4)*4;
   __m256d betaVec = _mm256_set1_pd(beta);
-  #pragma omp parallel for
+  #pragma omp parallel for schedule(static, 4)
   for (i=0; i<unroll; i+=4) {
     __m256d xVec = _mm256_load_pd(x + i);
     __m256d yVec = _mm256_load_pd(y + i);
