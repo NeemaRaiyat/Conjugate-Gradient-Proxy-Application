@@ -30,7 +30,6 @@ int waxpby (const int n, const double * const x, const double beta, const double
   for (; i<n; i++) {
     w[i] = x[i] + beta * y[i];
   }
-
   return 0;
 }
 

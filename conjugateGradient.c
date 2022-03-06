@@ -120,8 +120,7 @@ int conjugateGradient(struct mesh *A,
     return err;
   }
 #endif
-
-
+  
   for (k = 2; k < max_iter && *normr > tolerance; k++)
   {
     oldrtrans = rtrans;

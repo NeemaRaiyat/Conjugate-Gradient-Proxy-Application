@@ -26,18 +26,28 @@ int sparsemv(struct mesh *A, const double * const x, double * const y)
 
   const int nrow = (const int) A->local_nrow;
   int j = 0;
-  #pragma omp parallel for private(j) 
+  double sum = 0.0;
+  #pragma omp parallel for private(j, sum)
   for (int i=0; i< nrow; i++) {
-      double sum = 0.0;
-      const double * const cur_vals = (const double * const) A->ptr_to_vals_in_row[i];
-      const int * const cur_inds = (const int * const) A->ptr_to_inds_in_row[i];
-      const int cur_nnz = (const int) A->nnz_in_row[i];
-
-      for (j=0; j< cur_nnz; j++) {
-        sum += cur_vals[j]*x[cur_inds[j]];
-      }
-      y[i] = sum;
+    sum = 0.0;
+    const double * const cur_vals = (const double * const) A->ptr_to_vals_in_row[i];
+    const int * const cur_inds = (const int * const) A->ptr_to_inds_in_row[i];
+    const int cur_nnz = (const int) A->nnz_in_row[i];
+    int cur_nnzN = (cur_nnz/2)*2;
+    __m128d sumVec = _mm_set1_pd(sum);
+    for (j=0; j< cur_nnzN; j+=2) {
+      // sum += cur_vals[j] * x[cur_inds[j]];
+      __m128d cur_valsVec = _mm_loadu_pd(cur_vals + j);
+      __m128d xVec = _mm_loadu_pd(x + cur_inds[j]);
+      sumVec = _mm_add_pd(sumVec, _mm_mul_pd(cur_valsVec, xVec));
     }
+    for (; j < cur_nnz; j++) {
+      sum += cur_vals[j] * x[cur_inds[j]];
+    }
+    // y[i] = sum;
+    _mm_storeu_pd(y + i, sumVec);
+    y[i] += sum;
+  }
   return 0;
 
   // Loop fission? Loop Pipelining? Improve locality?
